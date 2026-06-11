@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Portfolio — AI Full-Stack Developer</title>
+    <title>Akash Giri — AI Full-Stack Developer</title>
     <style>
         :root {
             --primary: #667eea;
@@ -55,7 +55,7 @@
             justify-content: center;
             text-align: center;
             overflow: hidden;
-            padding: 40px 20px;
+            padding: 100px 20px 40px;
         }
 
         .hero-bg {
@@ -103,6 +103,49 @@
 
         .hero-content { position: relative; z-index: 2; max-width: 800px; }
 
+        .hero-avatar-wrap {
+            position: relative;
+            width: 120px; height: 120px;
+            margin: 0 auto 28px;
+            animation: fadeInDown 0.8s ease both;
+        }
+        .hero-avatar {
+            width: 120px; height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+            border: 3px solid rgba(102,126,234,0.6);
+            box-shadow: 0 0 30px rgba(102,126,234,0.4), 0 0 60px rgba(102,126,234,0.15);
+        }
+        .hero-avatar-ring {
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(102,126,234,0.35);
+            animation: spin-ring 10s linear infinite;
+        }
+        .hero-avatar-ring::after {
+            content: '';
+            position: absolute;
+            top: -4px; left: 50%;
+            transform: translateX(-50%);
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+        }
+        .hero-avatar-ring-2 {
+            inset: -18px;
+            border-color: rgba(240,147,251,0.2);
+            animation-duration: 18s;
+            animation-direction: reverse;
+        }
+        .hero-avatar-ring-2::after {
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
         .hero-badge {
             display: inline-block;
             background: rgba(102,126,234,0.2);
@@ -140,7 +183,7 @@
             animation: fadeInUp 0.8s ease 0.35s both;
         }
 
-        .typewriter-wrap {
+.typewriter-wrap {
             font-size: clamp(14px, 2vw, 18px);
             color: #a5b4fc;
             min-height: 28px;
@@ -270,90 +313,6 @@
            INTRO / ABOUT
         ══════════════════════════ */
         .about-section { background: linear-gradient(180deg, #0a0a1a 0%, #0d0d2b 100%); }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        @media (max-width: 768px) {
-            .about-grid { grid-template-columns: 1fr; gap: 40px; }
-        }
-
-        .about-text p {
-            color: var(--text-muted);
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .about-text p strong { color: var(--text); }
-
-        .expertise-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
-
-        .expertise-list li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 18px;
-            background: var(--glass);
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 10px;
-            font-size: 14px;
-            color: var(--text);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .expertise-list li:hover {
-            border-color: var(--primary);
-            background: rgba(102,126,234,0.1);
-            transform: translateX(6px);
-        }
-
-        .expertise-list li .icon {
-            font-size: 18px;
-            min-width: 28px;
-            text-align: center;
-        }
-
-        .why-grid { display: flex; flex-direction: column; gap: 12px; }
-
-        .why-card {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 14px 18px;
-            background: var(--glass);
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-
-        .why-card:hover {
-            background: rgba(102,126,234,0.12);
-            border-color: rgba(102,126,234,0.4);
-            transform: translateX(-6px);
-            box-shadow: var(--glow);
-        }
-
-        .why-card .check {
-            width: 32px; height: 32px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            flex-shrink: 0;
-            box-shadow: 0 0 12px rgba(102,126,234,0.5);
-        }
-
-        .why-card p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
-        .why-card p strong { color: var(--text); display: block; font-size: 15px; margin-bottom: 2px; }
 
         /* ══════════════════════════
            SERVICES
@@ -645,18 +604,256 @@
         }
 
         /* ══════════════════════════
+           NAVBAR
+        ══════════════════════════ */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0 32px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(10,10,26,0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            transition: background 0.3s ease;
+        }
+        .navbar.scrolled {
+            background: rgba(10,10,26,0.92);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+        }
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 2px; left: 50%; right: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover { color: white; }
+        .nav-links a:hover::after,
+        .nav-links a.active::after { left: 14px; right: 14px; }
+        .nav-links a.active { color: white; }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+            color: white !important;
+            padding: 7px 18px !important;
+            border-radius: 20px !important;
+        }
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .nav-hamburger span {
+            display: block; width: 22px; height: 2px;
+            background: var(--text-muted);
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 60px; left: 0; right: 0;
+                background: rgba(10,10,26,0.97);
+                padding: 16px 0 20px;
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+                gap: 2px;
+            }
+        }
+
+        /* ══════════════════════════
+           ABOUT — new minimal design
+        ══════════════════════════ */
+        .about-section { background: linear-gradient(180deg, #0a0a1a 0%, #0d0d2b 100%); }
+
+        /* central graphic ring */
+        .about-graphic {
+            position: relative;
+            width: 280px; height: 280px;
+            margin: 0 auto 60px;
+            flex-shrink: 0;
+        }
+        .ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1px solid rgba(102,126,234,0.2);
+            animation: spin-ring linear infinite;
+        }
+        .ring-1 { animation-duration: 18s; }
+        .ring-2 { inset: 24px; border-color: rgba(240,147,251,0.15); animation-duration: 28s; animation-direction: reverse; }
+        .ring-3 { inset: 52px; border-color: rgba(102,126,234,0.1); animation-duration: 40s; }
+        @keyframes spin-ring {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+        .ring-dot {
+            position: absolute;
+            top: -5px; left: 50%;
+            transform: translateX(-50%);
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 12px var(--primary);
+        }
+        .ring-1 .ring-dot { background: #a5b4fc; box-shadow: 0 0 10px #a5b4fc; }
+        .ring-2 .ring-dot { background: var(--accent); box-shadow: 0 0 10px var(--accent); top: auto; bottom: -5px; }
+        .about-center {
+            position: absolute;
+            inset: 76px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 40% 40%, rgba(102,126,234,0.25), rgba(118,75,162,0.15));
+            border: 1px solid rgba(102,126,234,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            box-shadow: 0 0 40px rgba(102,126,234,0.2), inset 0 0 30px rgba(102,126,234,0.05);
+        }
+
+        /* 5-pillar expertise row */
+        .expertise-pillars {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 56px;
+        }
+        .pillar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 20px 16px;
+            width: 130px;
+            background: var(--glass);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            cursor: default;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+        .pillar:hover {
+            transform: translateY(-8px);
+            border-color: rgba(102,126,234,0.4);
+            box-shadow: 0 0 24px rgba(102,126,234,0.2);
+            background: rgba(102,126,234,0.1);
+        }
+        .pillar-icon {
+            width: 46px; height: 46px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.3), rgba(118,75,162,0.3));
+            border: 1px solid rgba(102,126,234,0.25);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px;
+        }
+        .pillar span { font-size: 12px; color: var(--text-muted); line-height: 1.4; font-weight: 500; }
+
+        /* minimal why-me row */
+        .why-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+        }
+        .why-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: var(--glass);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .why-item:hover {
+            border-color: rgba(102,126,234,0.35);
+            background: rgba(102,126,234,0.08);
+            transform: translateY(-3px);
+        }
+        .why-dot {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+            box-shadow: 0 0 14px rgba(102,126,234,0.35);
+        }
+        .why-item p { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+        .why-item p strong { color: var(--text); display: block; font-size: 13px; margin-bottom: 1px; }
+
+        /* ══════════════════════════
            PRINT
         ══════════════════════════ */
         @media print {
             :root { --glass: rgba(0,0,0,0.03); }
             body { background: white; color: #333; }
             .hero { min-height: auto; padding: 40px 24px; }
-            .orb, .particles { display: none; }
+            .orb, .particles, .navbar { display: none; }
             .cta-btn { box-shadow: none; }
         }
     </style>
 </head>
 <body>
+
+<!-- ═══════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+    <a href="#top" class="nav-logo">Akash Giri</a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#top">Intro</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="http://wa.me/+919804945122" target="_blank" class="nav-cta">Hire Me</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
 
 <!-- ═══════════════════════════════════════
      HERO
@@ -669,15 +866,20 @@
     <div class="particles" id="particles"></div>
 
     <div class="hero-content">
+        <div class="hero-avatar-wrap">
+            <img src="https://media.licdn.com/dms/image/v2/C4E03AQGH0CVBhGYSkg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1632899046991?e=1782950400&v=beta&t=2W39abXSoTdM07a-eKHF0GbcaVn4VqCF6gBQKNAlnyg" alt="Akash Giri" class="hero-avatar">
+            <div class="hero-avatar-ring"></div>
+            <div class="hero-avatar-ring hero-avatar-ring-2"></div>
+        </div>
+
         <div class="hero-badge">Available for hire · Immediate start</div>
 
         <h1>
-            AI Full-Stack<br>
-            <span>Developer</span>
+            Akash Giri<br>
+            <span>AI Full-Stack Developer</span>
         </h1>
 
         <p class="hero-subtitle">Mobile &amp; Web · AI-Powered Products · Enterprise Solutions</p>
-
         <div class="typewriter-wrap">
             <span id="typewriter"></span>
         </div>
@@ -709,56 +911,71 @@
 <!-- ═══════════════════════════════════════
      ABOUT / INTRO
 ════════════════════════════════════════ -->
-<section class="about-section">
-    <div class="container">
-        <div class="reveal">
+<section class="about-section" id="about">
+    <div class="container" style="text-align:center;">
+
+        <!-- heading -->
+        <div class="reveal" style="margin-bottom:48px;">
             <div class="section-label">About Me</div>
             <h2 class="section-title">Building products that <span>scale</span></h2>
-            <p class="section-desc">11+ years of hands-on experience crafting production-ready applications for startups, businesses, and enterprises.</p>
         </div>
 
-        <div class="about-grid">
-            <div class="reveal">
-                <div class="about-text">
-                    <p>I am an <strong>AI Full-Stack Developer</strong> with 11+ years of experience building scalable mobile and web applications. I help you develop a high-quality, production-ready solution with a strong focus on performance, user experience, scalability, and long-term maintainability.</p>
-                    <p>My goal is not only to build the application but to create a <strong>reliable, future-ready product</strong> that delivers real value to your users and supports your business growth.</p>
-                    <p>I am available to <strong>start immediately</strong> and would be happy to discuss your requirements in detail.</p>
-                </div>
+        <!-- animated graphic -->
+        <div class="about-graphic reveal" style="transition-delay:0.05s;">
+            <div class="ring ring-1"><div class="ring-dot"></div></div>
+            <div class="ring ring-2"><div class="ring-dot"></div></div>
+            <div class="ring ring-3"></div>
+            <div class="about-center">🚀</div>
+        </div>
 
-                <ul class="expertise-list" style="margin-top:28px">
-                    <li><span class="icon">📱</span> Flutter for Android, iOS, Web &amp; Desktop</li>
-                    <li><span class="icon">🤖</span> AI features with OpenAI, ChatGPT &amp; LLMs</li>
-                    <li><span class="icon">💬</span> Real-time chat, voice/video &amp; notifications</li>
-                    <li><span class="icon">⚙️</span> Backend — Spring Boot, Node.js, Firebase</li>
-                    <li><span class="icon">💳</span> Payment gateways, analytics &amp; third-party APIs</li>
-                </ul>
+        <!-- expertise pillars -->
+        <div class="expertise-pillars reveal" style="transition-delay:0.1s;">
+            <div class="pillar">
+                <div class="pillar-icon">📱</div>
+                <span>Flutter &amp; Mobile</span>
             </div>
-
-            <div class="reveal" style="transition-delay:0.15s">
-                <div class="why-grid">
-                    <div class="why-card">
-                        <div class="check">✓</div>
-                        <p><strong>Clean, scalable &amp; maintainable code</strong>Architecture that grows with your product, not against it.</p>
-                    </div>
-                    <div class="why-card">
-                        <div class="check">✓</div>
-                        <p><strong>Regular updates &amp; transparent communication</strong>You always know exactly where your project stands.</p>
-                    </div>
-                    <div class="why-card">
-                        <div class="check">✓</div>
-                        <p><strong>Fast response across time zones</strong>Available when you need answers, no long waits.</p>
-                    </div>
-                    <div class="why-card">
-                        <div class="check">✓</div>
-                        <p><strong>Unlimited reasonable revisions</strong>Your satisfaction drives every iteration.</p>
-                    </div>
-                    <div class="why-card">
-                        <div class="check">✓</div>
-                        <p><strong>Deployment, publishing &amp; post-launch support</strong>App Store, Play Store, cloud — covered end-to-end.</p>
-                    </div>
-                </div>
+            <div class="pillar">
+                <div class="pillar-icon">🤖</div>
+                <span>AI &amp; LLMs</span>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">💬</div>
+                <span>Real-time Apps</span>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">⚙️</div>
+                <span>Backend &amp; Cloud</span>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">💳</div>
+                <span>Payments &amp; APIs</span>
             </div>
         </div>
+
+        <!-- why work with me — minimal cards -->
+        <div class="why-row reveal" style="transition-delay:0.15s; text-align:left;">
+            <div class="why-item">
+                <div class="why-dot">✦</div>
+                <p><strong>Clean &amp; scalable code</strong>Future-proof architecture.</p>
+            </div>
+            <div class="why-item">
+                <div class="why-dot">🔄</div>
+                <p><strong>Transparent updates</strong>Always know where things stand.</p>
+            </div>
+            <div class="why-item">
+                <div class="why-dot">⚡</div>
+                <p><strong>Fast across time zones</strong>No long waits, ever.</p>
+            </div>
+            <div class="why-item">
+                <div class="why-dot">∞</div>
+                <p><strong>Unlimited revisions</strong>Until you love it.</p>
+            </div>
+            <div class="why-item">
+                <div class="why-dot">🚀</div>
+                <p><strong>End-to-end delivery</strong>From code to App Store.</p>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -767,7 +984,7 @@
 <!-- ═══════════════════════════════════════
      SERVICES
 ════════════════════════════════════════ -->
-<section class="services-section">
+<section class="services-section" id="services">
     <div class="container">
         <div class="reveal" style="text-align:center; margin-bottom:50px;">
             <div class="section-label">What I Offer</div>
@@ -829,9 +1046,111 @@
 <div class="divider"></div>
 
 <!-- ═══════════════════════════════════════
+     TECHNICAL EXPERTISE
+════════════════════════════════════════ -->
+<section class="tech-section" id="stack">
+    <div class="container">
+        <div class="reveal" style="text-align:center; margin-bottom:50px;">
+            <div class="section-label">Stack</div>
+            <h2 class="section-title">Technical <span>Expertise</span></h2>
+        </div>
+
+        <div class="tech-grid">
+
+            <div class="tech-card reveal">
+                <span class="tech-card-icon">📱</span>
+                <h3>Mobile Development</h3>
+                <div class="skill-item">
+                    <div class="skill-header"><span>Flutter (All Platforms)</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>Android (Java/Kotlin)</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>React Native</span><span>80%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>iOS Development</span><span>75%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+                </div>
+            </div>
+
+            <div class="tech-card reveal" style="transition-delay:0.1s">
+                <span class="tech-card-icon">🌐</span>
+                <h3>Web &amp; Backend</h3>
+                <div class="skill-item">
+                    <div class="skill-header"><span>Spring Boot</span><span>88%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>Node.js</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>React.js</span><span>82%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>REST APIs</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+                </div>
+            </div>
+
+            <div class="tech-card reveal" style="transition-delay:0.2s">
+                <span class="tech-card-icon">🤖</span>
+                <h3>AI &amp; Cloud</h3>
+                <div class="skill-item">
+                    <div class="skill-header"><span>OpenAI / ChatGPT</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>LLM Integration</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>Firebase</span><span>92%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>Cloud Services (AWS/GCP)</span><span>78%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+                </div>
+            </div>
+
+            <div class="tech-card reveal" style="transition-delay:0.3s">
+                <span class="tech-card-icon">🗄️</span>
+                <h3>Database &amp; Payments</h3>
+                <div class="skill-item">
+                    <div class="skill-header"><span>Firestore / RTDB</span><span>92%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>MySQL / PostgreSQL</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>MongoDB</span><span>80%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>Payment Gateways</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════
      PROJECTS  (kept as-is per request)
 ════════════════════════════════════════ -->
-<section class="projects-section">
+<section class="projects-section" id="projects">
     <div class="container">
         <div class="reveal" style="margin-bottom:50px;">
             <div class="section-label">Portfolio</div>
@@ -1064,108 +1383,6 @@
 <div class="divider"></div>
 
 <!-- ═══════════════════════════════════════
-     TECHNICAL EXPERTISE
-════════════════════════════════════════ -->
-<section class="tech-section">
-    <div class="container">
-        <div class="reveal" style="text-align:center; margin-bottom:50px;">
-            <div class="section-label">Stack</div>
-            <h2 class="section-title">Technical <span>Expertise</span></h2>
-        </div>
-
-        <div class="tech-grid">
-
-            <div class="tech-card reveal">
-                <span class="tech-card-icon">📱</span>
-                <h3>Mobile Development</h3>
-                <div class="skill-item">
-                    <div class="skill-header"><span>Flutter (All Platforms)</span><span>95%</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header"><span>Android (Java/Kotlin)</span><span>90%</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header"><span>React Native</span><span>80%</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header"><span>iOS Development</span><span>75%</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
-                </div>
-            </div>
-
-            <div class="tech-card reveal" style="transition-delay:0.1s">
-                <span class="tech-card-icon">🌐</span>
-                <h3>Web &amp; Backend</h3>
-                <div class="skill-item">
-                    <div class="skill-header"><span>Spring Boot</span><span>88%</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header"><span>Node.js</span><span>85%</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header"><span>React.js</span><span>82%</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header"><span>REST APIs</span><span>95%</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
-                </div>
-            </div>
-
-            <div class="tech-card reveal" style="transition-delay:0.2s">
-                <span class="tech-card-icon">🤖</span>
-                <h3>AI &amp; Cloud</h3>
-                <div class="skill-item">
-                    <div class="skill-header"><span>OpenAI / ChatGPT</span><span>90%</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header"><span>LLM Integration</span><span>85%</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header"><span>Firebase</span><span>92%</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header"><span>Cloud Services (AWS/GCP)</span><span>78%</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
-                </div>
-            </div>
-
-            <div class="tech-card reveal" style="transition-delay:0.3s">
-                <span class="tech-card-icon">🗄️</span>
-                <h3>Database &amp; Payments</h3>
-                <div class="skill-item">
-                    <div class="skill-header"><span>Firestore / RTDB</span><span>92%</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header"><span>MySQL / PostgreSQL</span><span>85%</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header"><span>MongoDB</span><span>80%</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header"><span>Payment Gateways</span><span>90%</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ═══════════════════════════════════════
      INDUSTRY
 ════════════════════════════════════════ -->
 <section class="industry-section">
@@ -1313,6 +1530,30 @@
         });
     }, { threshold: 0.3 });
     bars.forEach(b => obs.observe(b));
+})();
+
+// ── Navbar scroll + active link ────────────────
+(function () {
+    const navbar = document.getElementById('navbar');
+    const links  = document.querySelectorAll('.nav-links a[href^="#"]');
+    const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 20);
+
+        let current = '';
+        sections.forEach(s => {
+            if (window.scrollY >= s.offsetTop - 100) current = '#' + s.id;
+        });
+        links.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === current);
+        });
+    }, { passive: true });
+
+    // close mobile menu on link click
+    links.forEach(a => a.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('open');
+    }));
 })();
 </script>
 </body>
